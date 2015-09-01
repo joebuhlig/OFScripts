@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+"http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>Label</key>
+		<string>com.omnifocusparsing</string>
+		<key>ProgramArguments</key>
+		<array>
+			<string>osascript</string>
+			<string>/Users/JoeBuhlig/DropBox/AppleScripts/BackgroundScripts/ParseInbox.scpt</string>
+		</array>
+		<key>StartInterval</key>
+		<integer>300</integer>
+	</dict>
+</plist>
