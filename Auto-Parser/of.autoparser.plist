@@ -8,7 +8,7 @@
 		<key>ProgramArguments</key>
 		<array>
 			<string>osascript</string>
-			<string>/Users/JoeBuhlig/DropBox/AppleScripts/BackgroundScripts/ParseInbox.scpt</string>
+			<string>/Users/Username/DropBox/AppleScripts/BackgroundScripts/ParseInbox.applescript</string>
 		</array>
 		<key>StartInterval</key>
 		<integer>300</integer>
