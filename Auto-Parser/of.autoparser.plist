@@ -4,7 +4,7 @@
 <plist version="1.0">
 	<dict>
 		<key>Label</key>
-		<string>com.omnifocusparsing</string>
+		<string>of.autoparser</string>
 		<key>ProgramArguments</key>
 		<array>
 			<string>osascript</string>
