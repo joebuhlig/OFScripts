@@ -38,6 +38,10 @@ When you've altered the files and placed them, log off of your account and then 
 
 Create a test string and pass it to your inbox. Wait until your StartInterval time has passed and watch the magic happen!
 
+## Alternative installation
+
+Another way to install this is to download the files and run the python installer. It will prompt you for the run interval (defaults to 300 seconds or 5 minutes) and then install and load the pList automatically. Hat tip to [Patrick](https://github.com/halbtuerke) for this addition.
+
 # Development
 
 I'm certainly open to the submission of Pull Requests to make this better. It's very basic at the moment. If you find issues and fix them, please let me know and I'll be happy to update and give you credit.
