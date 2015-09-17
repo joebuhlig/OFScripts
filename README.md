@@ -10,4 +10,4 @@ To use it, you simply need to create a string that is to be parsed and pass it t
 
 # Update Reviews
 
-If that flag beside the Review perspective drives you crazy, this is for you. You can set dates for your scheduled reviews and move the Next Review Date of each project forward to the next instance of your reviews. You can learn more about it [here](http://joebuhlig.com).
+If that flag beside the Review perspective drives you crazy, this is for you. You can set dates for your scheduled reviews and move the Next Review Date of each project forward to the next instance of your reviews. You can learn more about it [here](http://joebuhlig.com/scheduled-reviews-in-omnifocus/).
