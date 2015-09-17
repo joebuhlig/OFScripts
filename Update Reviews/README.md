@@ -11,18 +11,20 @@ It's pretty simple to set this up as a one-click update.
 
 Download the script and change the dates to match your scheduled reviews. 
 
-First change the path in the pList file to match the location of the AppleScript file.
-
 `-- weeklyReviewDay is the day of the week of your Weekly Review.`
+
 `set weeklyReviewDay to Friday`
 
 `-- monthlyReviewDay is the day of the month of your Monthly Review.`
+
 `set monthlyReviewDay to 1`
 
 `-- annualReviewMonth is the month of your Annual Review.`
+
 `set annualReviewMonth to January`
 
 `-- annualReviewDay is the day of the month for your Annual Review.`
+
 `set annualReviewDay to 1`
 
 ## 2. Place the script
