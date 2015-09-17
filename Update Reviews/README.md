@@ -1,6 +1,6 @@
 # Update OmniFocus Next Review Dates
 
-This script moves the review dates of your projects forward to your next scheduled review. The flag next to the Review perspective drives me crazy when I'm not going to do my review for a few days. You can learn more about why this script exists [here](http://joebuhlig.com).
+This script moves the review dates of your projects forward to your next scheduled review. The flag next to the Review perspective drives me crazy when I'm not going to do my review for a few days. You can learn more about why this script exists [here](http://joebuhlig.com/scheduled-reviews-in-omnifocus/).
 
 
 # Installation
