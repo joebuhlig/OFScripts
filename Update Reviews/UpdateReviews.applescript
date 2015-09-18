@@ -27,7 +27,7 @@ Next Review for Weekly will be " & date string of nextWeeklyReview & "
 Next Review for Monthly will be " & date string of nextMonthlyReview & "
 Next Review for Yearly will be: " & date string of nextAnnualReview & "
 
-Projects that have any other Next Review setting will be remain unchanged.
+Projects that have any other Next Review setting will remain unchanged.
 
 Are you sure you want to do this?" buttons {"Yes", "No"} default button 2
 set answer to button returned of question
