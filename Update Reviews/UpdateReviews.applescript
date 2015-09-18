@@ -21,12 +21,13 @@ set nextMonthlyReview to nextMonthDay(nextMonthlyReview, monthlyReviewDay)
 set nextAnnualReview to nextYearDay(nextAnnualReview, annualReviewMonth, annualReviewDay)
 
 -- Confirm that the user wants to move forward with this
-set question to display dialog "The next review dates of your projects will be adjusted.
+set question to display dialog "The Next Review date of your projects will be adjusted based on each project's Next Review setting.
 
-Review intervals of:
-Once weekly will be " & date string of nextWeeklyReview & "
-Once monthly will be " & date string of nextMonthlyReview & "
-Once yearly will be: " & date string of nextAnnualReview & "
+Next Review for Weekly will be " & date string of nextWeeklyReview & "
+Next Review for Monthly will be " & date string of nextMonthlyReview & "
+Next Review for Yearly will be: " & date string of nextAnnualReview & "
+
+Projects that have any other Next Review setting will be remain unchanged.
 
 Are you sure you want to do this?" buttons {"Yes", "No"} default button 2
 set answer to button returned of question
