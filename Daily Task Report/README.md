@@ -5,15 +5,25 @@ I like keeping a log of the work I've done every day. And since I keep all of my
 It will generate a plain text file with the following format:
 
 `Weekday, Month Day, Year`
+
 `------------------------`
+
 `Project Name`
+
 `Task Name ----- HH:MM:SS AM/PM`
+
 `Task Name ----- HH:MM:SS AM/PM`
+
 `Task Name ----- HH:MM:SS AM/PM`
+
 `------------------------`
+
 `Project Name`
+
 `Task Name ----- HH:MM:SS AM/PM`
+
 `Task Name ----- HH:MM:SS AM/PM`
+
 `Task Name ----- HH:MM:SS AM/PM`
 
 # Running the Script
