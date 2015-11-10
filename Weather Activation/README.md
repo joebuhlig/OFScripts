@@ -31,8 +31,11 @@ In this example, the project will go from On Hold to Active if tomorrow's low te
 You can also use both low and high temperature together.
 
 `<Activate>`
+
 `LowTemp: <=38;`
+
 `HighTemp: >45;`
+
 `</Activate>`
 
 Here, the project will go from On Hold to Active if tomorrow's low is less than or equal to 38 degrees AND the high temperature is greater than 45 degrees.
@@ -40,11 +43,17 @@ Here, the project will go from On Hold to Active if tomorrow's low is less than 
 And for really complex situations, you can use both Activate and Deactivate at once:
 
 `<Activate>`
+
 `LowTemp: <=38;`
+
 `HighTemp: >45;`
+
 `</Activate`
+
 `<Deactivate>`
+
 `LowTemp: >38;`
+
 `</Deactivate>`
 
 In this scenario, the project will go from On Hold to Active if tomorrow's low is less than or equal to 38 degrees AND the high is greater than 45. It will go back to On Hold if the low temperature is above 38 degrees.
