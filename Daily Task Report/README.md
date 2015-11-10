@@ -22,6 +22,8 @@ Task Name ----- HH:MM:SS AM/PM
 
 You could manually run this every day, but I've found Hazel to be much more reliable than me. Here's a screenshot of the rule I use to run this:
 
+![Hazel Rule](https://github.com/joebuhlig/OFScripts/blob/master/Daily%20Task%20Report/HazelRule.jpg)
+
 # Setup
 
 All you need to do is tell it where you want to save the files. Change this line:
