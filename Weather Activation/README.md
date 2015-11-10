@@ -21,7 +21,9 @@ Change the API key, the city, and the state in the url. You can always enter thi
 For the script to work, you need to use either `<Activate></Activate>` or `<Deactivate></Deactivate>` in the notes field for the project. Inside those tags, you can use either `LowTemp` or `HighTemp`. Those are the only two fields supported right now. Here's an example: 
 
 `<Activate>`
+
 `LowTemp: <=38;`
+
 `</Activate>`
 
 In this example, the project will go from On Hold to Active if tomorrow's low temperature is less than or equal to 38 degrees.
