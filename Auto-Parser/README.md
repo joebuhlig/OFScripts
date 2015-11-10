@@ -19,8 +19,10 @@ First change the path in the pList file to match the location of the AppleScript
 
 Alter the start interval to the amount of time you'd like the script to run. This number is in seconds, so 300 is equal to five minutes. The script will run every five minutes.
 
-`<key>StartInterval</key>`
-`<integer>300</integer>`
+```xml
+<key>StartInterval</key>
+<integer>300</integer>
+```
 
 ## 2. Place the files
 
