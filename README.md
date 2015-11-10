@@ -11,3 +11,11 @@ To use it, you simply need to create a string that is to be parsed and pass it t
 # Update Reviews
 
 If that flag beside the Review perspective drives you crazy, this is for you. You can set dates for your scheduled reviews and move the Next Review Date of each project forward to the next instance of your reviews. You can learn more about it [here](http://joebuhlig.com/scheduled-reviews-in-omnifocus/).
+
+# Daily Task Report
+
+I like keeping a log of the work I've done every day. And since I keep all of my work in OmniFocus, it only makes sense to automatically create a report off of yesterdays completed tasks. That's exactly what this script does.
+
+# Weather Activation
+
+This is one of the more involved scripts I use. It will activate or deactivate a project in OmniFocus based on tomorrow's weather forecast. The project will go from On Hold to Active if it's being activated. It will go from Active to On Hold if deactivated.
