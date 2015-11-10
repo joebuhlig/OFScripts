@@ -20,41 +20,36 @@ Change the API key, the city, and the state in the url. You can always enter thi
 
 For the script to work, you need to use either `<Activate></Activate>` or `<Deactivate></Deactivate>` in the notes field for the project. Inside those tags, you can use either `LowTemp` or `HighTemp`. Those are the only two fields supported right now. Here's an example: 
 
-`<Activate>`
-
-`LowTemp: <=38;`
-
-`</Activate>`
+```html
+<Activate>
+LowTemp: <=38;
+</Activate>
+```
 
 In this example, the project will go from On Hold to Active if tomorrow's low temperature is less than or equal to 38 degrees.
 
 You can also use both low and high temperature together.
 
-`<Activate>`
-
-`LowTemp: <=38;`
-
-`HighTemp: >45;`
-
-`</Activate>`
+```
+<Activate>
+LowTemp: <=38;
+HighTemp: >45;
+</Activate>
+```
 
 Here, the project will go from On Hold to Active if tomorrow's low is less than or equal to 38 degrees AND the high temperature is greater than 45 degrees.
 
 And for really complex situations, you can use both Activate and Deactivate at once:
 
-`<Activate>`
-
-`LowTemp: <=38;`
-
-`HighTemp: >45;`
-
-`</Activate`
-
-`<Deactivate>`
-
-`LowTemp: >38;`
-
-`</Deactivate>`
+```
+<Activate>
+LowTemp: <=38;
+HighTemp: >45;
+</Activate
+<Deactivate>
+LowTemp: >38;
+</Deactivate>
+```
 
 In this scenario, the project will go from On Hold to Active if tomorrow's low is less than or equal to 38 degrees AND the high is greater than 45. It will go back to On Hold if the low temperature is above 38 degrees.
 
