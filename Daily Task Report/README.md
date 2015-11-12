@@ -2,6 +2,12 @@
 
 I like keeping a log of the work I've done every day. And since I keep all of my work in OmniFocus, it only makes sense to automatically create a report off of yesterdays completed tasks. That's exactly what this script does.
 
+# Which File?
+
+You'll find two versions of the script - `.scpt` and `.applescript`. In order to run it from OmniFocus, you'll want to use the `.scpt` version. The `.applescript` format is purely there so you can view the code online.
+
+# Output
+
 It will generate a plain text file with the following format:
 
 ```

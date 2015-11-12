@@ -2,6 +2,9 @@
 
 This script moves the review dates of your projects forward to your next scheduled review. The flag next to the Review perspective drives me crazy when I'm not going to do my review for a few days. You can learn more about why this script exists [here](http://joebuhlig.com/scheduled-reviews-in-omnifocus/).
 
+# Which File?
+
+You'll find two versions of the script - `.scpt` and `.applescript`. In order to run it from OmniFocus, you'll want to use the `.scpt` version. The `.applescript` format is purely there so you can view the code online.
 
 # Installation
 

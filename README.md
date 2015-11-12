@@ -2,6 +2,10 @@
 
 This is a repository of the automated systems I use to enhance OmniFocus. If you find errors or would like to contribute to these, feel free to send me a pull request.
 
+# Which Files?
+
+In each of the directories you'll find two versions of the script - `.scpt` and `.applescript`. In order to run them from OmniFocus, you'll want to use the `.scpt` version. The `.applescript` format is purely there so you can view the code online.
+
 # Auto-Parser
 
 This is a launch agent designed to automatically parse the inbox of OmniFocus behind the scenes. You can email into OmniFocus and have it automatically parsed into the correct project and context. It can even have due dates, defer dates, flags, and estimated time.

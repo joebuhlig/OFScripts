@@ -4,6 +4,9 @@ This is a launch agent designed to automatically parse the inbox of OmniFocus be
 
 To use it, you simply need to create a string that is to be parsed and pass it to the OmniFocus inbox. You can learn more about creating the string for this [here](http://joebuhlig.com/using-omnifocus-for-somedaymaybe-lists/).
 
+# Which File?
+
+You'll find two versions of the script - `.scpt` and `.applescript`. In order to run it from OmniFocus, you'll want to use the `.scpt` version. The `.applescript` format is purely there so you can view the code online.
 
 # Installation
 

@@ -2,6 +2,10 @@
 
 This is one of the more involved scripts I use. It will activate or deactivate a project in OmniFocus based on tomorrow's weather forecast. The project will go from On Hold to Active if it's being activated. It will go from Active to On Hold if deactivated.
 
+# Which File?
+
+You'll find two versions of the script - `.scpt` and `.applescript`. In order to run it from OmniFocus, you'll want to use the `.scpt` version. The `.applescript` format is purely there so you can view the code online.
+
 # JSON Helper
 
 In order for this to work correctly, you'll need [JSON Helper from the Mac App Store](https://itunes.apple.com/us/app/json-helper-for-applescript/id453114608?mt=12). It's free, so no need to worry. This is what will allow the script to navigate the data returned from Weather Underground.
