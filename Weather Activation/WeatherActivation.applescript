@@ -3,6 +3,8 @@ tell application "JSON Helper"
 	set weather to fetch JSON from (theURL)
 	set highTemp to (fahrenheit of high of item 1 of forecastday of simpleforecast of forecast of weather) as integer
 	set lowTemp to (fahrenheit of low of item 1 of forecastday of simpleforecast of forecast of weather) as integer
+	set condition to (|in| of qpf_day of item 1 of forecastday of simpleforecast of forecast of weather)
+	
 end tell
 
 tell application "OmniFocus"
@@ -85,6 +87,10 @@ on activateProject(triggerType, triggerOperator, triggerInt, highTemp, lowTemp)
 	
 	if triggerType = "HighTemp" then
 		set weatherData to highTemp
+		set dataCheck to my dataCheck(weatherData, triggerOperator, triggerInt)
+	end if
+	if triggerType = "Precip" then
+		set weatherData to condition
 		set dataCheck to my dataCheck(weatherData, triggerOperator, triggerInt)
 	end if
 	return dataCheck
