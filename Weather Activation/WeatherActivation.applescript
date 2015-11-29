@@ -3,7 +3,7 @@ tell application "JSON Helper"
 	set weather to fetch JSON from (theURL)
 	set highTemp to (fahrenheit of high of item 1 of forecastday of simpleforecast of forecast of weather) as integer
 	set lowTemp to (fahrenheit of low of item 1 of forecastday of simpleforecast of forecast of weather) as integer
-	set condition to (|in| of qpf_day of item 1 of forecastday of simpleforecast of forecast of weather)
+	set condition to (|in| of qpf_allday of item 1 of forecastday of simpleforecast of forecast of weather)
 	
 end tell
 
@@ -18,14 +18,14 @@ tell application "OmniFocus"
 			set projNote to note of curProject
 			if projNote contains "<Activate>" then
 				set projectTriggers to text ((offset of "<Activate>" in projNote) + 10) thru ((offset of "</Activate>" in projNote) - 1) of projNote
-				set triggerFlag to my getTriggerFlag(projectTriggers, highTemp, lowTemp)
+				set triggerFlag to my getTriggerFlag(projectTriggers, highTemp, lowTemp, condition)
 				if triggerFlag is true then
 					set status of curProject to active
 				end if
 			end if -- if note contains <Activate>
 			if projNote contains "<Deactivate>" then
 				set projectTriggers to text ((offset of "<Deactivate>" in projNote) + 12) thru ((offset of "</Deactivate>" in projNote) - 1) of projNote
-				set triggerFlag to my getTriggerFlag(projectTriggers, highTemp, lowTemp)
+				set triggerFlag to my getTriggerFlag(projectTriggers, highTemp, lowTemp, condition)
 				if triggerFlag is true then
 					set status of curProject to on hold
 				end if
@@ -34,7 +34,7 @@ tell application "OmniFocus"
 	end tell
 end tell
 
-on getTriggerFlag(projectTriggers, highTemp, lowTemp)
+on getTriggerFlag(projectTriggers, highTemp, lowTemp, condition)
 	set AppleScript's text item delimiters to {";"}
 	set weatherTriggers to every text item of projectTriggers
 	set AppleScript's text item delimiters to {" "}
@@ -71,7 +71,7 @@ on getTriggerFlag(projectTriggers, highTemp, lowTemp)
 		end try
 		set triggerOperator to text 1 thru (firstIntLoc - 1) of triggerValue
 		set triggerInt to (text firstIntLoc thru (length of triggerValue) of triggerValue) as integer
-		set tempFlag to my activateProject(triggerType, triggerOperator, triggerInt, highTemp, lowTemp)
+		set tempFlag to my activateProject(triggerType, triggerOperator, triggerInt, highTemp, lowTemp, condition)
 		if tempFlag is false then
 			set triggerFlag to false
 		end if
@@ -79,7 +79,7 @@ on getTriggerFlag(projectTriggers, highTemp, lowTemp)
 	return triggerFlag
 end getTriggerFlag
 
-on activateProject(triggerType, triggerOperator, triggerInt, highTemp, lowTemp)
+on activateProject(triggerType, triggerOperator, triggerInt, highTemp, lowTemp, condition)
 	if triggerType = "LowTemp" then
 		set weatherData to lowTemp
 		set dataCheck to my dataCheck(weatherData, triggerOperator, triggerInt)
