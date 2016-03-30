@@ -23,3 +23,7 @@ I like keeping a log of the work I've done every day. And since I keep all of my
 # Weather Activation
 
 This is one of the more involved scripts I use. It will activate or deactivate a project in OmniFocus based on tomorrow's weather forecast. The project will go from On Hold to Active if it's being activated. It will go from Active to On Hold if deactivated.
+
+# Task Shuffle
+
+I've found that reviewing my idea lists generates more and new ideas if I can shuffle the tasks within a given project. So that's what this does. Select a project or projects and run this script to shuffle the tasks within each project.
