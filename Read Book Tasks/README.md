@@ -1,0 +1,13 @@
+# Read Book Tasks
+
+I read books on a schedule so I needed a quick way to create tasks for how much to read in a day. This script adds these tasks automatically after asking a handful of questions about the book and your timeframe.
+
+__You'll want to update the beginning line of the script with your Context of choice. If you don't and "Read" is not an available context, it will throw an error.__
+
+# Which File?
+
+You'll find two versions of the script - `.scpt` and `.applescript`. In order to run it from OmniFocus, you'll want to use the `.scpt` version. The `.applescript` format is purely there so you can view the code online.
+
+# Development
+
+I'm certainly open to the submission of Pull Requests to make this better. If you find issues and fix them, please let me know and I'll be happy to update and give you credit.
