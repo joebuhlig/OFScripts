@@ -15,8 +15,7 @@ set endMonth to text 5 thru 6 of endDate
 set endDay to text 7 thru 8 of endDate
 set endDateString to endMonth & "/" & endDay & "/" & endYear
 set endDate to date endDateString
-
-set numDays to (endDate - deferDate) div days
+set numDays to ((endDate - deferDate) div days) + 1
 
 tell application "OmniFocus"
 	tell document of front window
@@ -27,7 +26,7 @@ tell application "OmniFocus"
 		set taskTitle to "Read pages " & startPage & " - " & endPage & " of " & bookTitle
 		set theContext to first flattened context where its name is myContext
 		set newTask to make new inbox task with properties {name:taskTitle, defer date:deferDate, context:theContext}
-		repeat numDays times
+		repeat (numDays - 1) times
 			set startPage to endPage + 1
 			set endPage to round (pagesPer * i) rounding up
 			set taskTitle to "Read pages " & startPage & " - " & endPage & " of " & bookTitle
