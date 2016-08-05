@@ -4,6 +4,8 @@ I read books on a schedule so I needed a quick way to create tasks for how much 
 
 __You'll want to update the beginning line of the script with your Context of choice. If you don't and "Read" is not an available context, it will throw an error.__
 
+Also, if you want an iOS version of this script and you have Workflow for iOS, [check this out](https://workflow.is/workflows/cece509a6fd6477d8d9e479f3f5df184).
+
 # Which File?
 
 You'll find two versions of the script - `.scpt` and `.applescript`. In order to run it from OmniFocus, you'll want to use the `.scpt` version. The `.applescript` format is purely there so you can view the code online.
