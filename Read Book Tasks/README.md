@@ -1,6 +1,6 @@
 # Read Book Tasks
 
-I read books on a schedule so I needed a quick way to create tasks for how much to read in a day. This script adds these tasks automatically after asking a handful of questions about the book and your timeframe.
+I read books on a schedule so I needed a quick way to create tasks for how much to read in a day. This script adds these tasks automatically after asking a handful of questions about the book and your timeframe. You can learn more about it [here](http://joebuhlig.com/reading-books-on-a-schedule/).
 
 __You'll want to update the beginning line of the script with your Context of choice. If you don't and "Read" is not an available context, it will throw an error.__
 
