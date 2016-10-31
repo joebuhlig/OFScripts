@@ -61,6 +61,7 @@ tell application "OmniFocus"
 			if (reviewUnits = week and reviewSteps = 1) or (reviewUnits = day and reviewSteps = 7) then -- If the project is reviewed weekly...
 				-- Apply the new review date to the project
 				set curProject's next review date to nextWeeklyReview
+				set curProject's last review date to current date
 				-- If the review date has changed, increment the counter by one
 				if curProject's next review date is not equal to origReviewDate then
 					set projectCNT to projectCNT + 1
@@ -68,6 +69,7 @@ tell application "OmniFocus"
 			else if (reviewUnits = month and reviewSteps = 1) then -- If the project is reviewed monthly...
 				-- Apply the new review date to the project
 				set curProject's next review date to nextMonthlyReview
+				set curProject's last review date to current date
 				-- If the review date has changed, increment the counter by one
 				if curProject's next review date is not equal to origReviewDate then
 					set projectCNT to projectCNT + 1
@@ -75,6 +77,7 @@ tell application "OmniFocus"
 			else if (reviewUnits = year and reviewSteps = 1) then -- If the project is review annually...
 				-- Apply the new review date to the project
 				set curProject's next review date to nextAnnualReview
+				set curProject's last review date to current date
 				-- If the review date has changed, increment the counter by one
 				if curProject's next review date is not equal to origReviewDate then
 					set projectCNT to projectCNT + 1
