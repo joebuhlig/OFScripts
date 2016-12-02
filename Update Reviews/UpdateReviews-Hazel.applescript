@@ -106,10 +106,11 @@ on lastWeekDay(curDate)
 end lastWeekDay
 
 on lastMonthDay(curDate)
-	set curDate's month to (curDate's month) - 1
-	if curDate's month is less than 1 then
+	if ((curDate's month) * 1) is 1 then
 		set curDate's year to (curDate's year) - 1
 		set curDate's month to 12
+	else
+		set curDate's month to (curDate's month) - 1
 	end if
 	
 	return curDate
