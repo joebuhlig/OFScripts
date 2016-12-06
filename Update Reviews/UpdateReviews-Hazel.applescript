@@ -1,31 +1,31 @@
--- weeklyReviewDay is the day of the week of your Weekly Review.
-set weeklyReviewDay to Friday
-
--- monthlyReviewDay is the day of the month of your Monthly Review.
-set monthlyReviewDay to 1
-
--- annualReviewMonth is the month of your Annual Review.
-set annualReviewMonth to January
-
--- annualReviewDay is the day of the month for your Annual Review.
-set annualReviewDay to 1
-
--- Get the current date as a base for new review dates
-set nextWeeklyReview to current date
-set nextMonthlyReview to current date
-set nextAnnualReview to current date
-
--- Get the next available review date for each scenario
-set nextWeeklyReview to nextWeekDay(nextWeeklyReview, weeklyReviewDay)
-set nextMonthlyReview to nextMonthDay(nextMonthlyReview, monthlyReviewDay)
-set nextAnnualReview to nextYearDay(nextAnnualReview, annualReviewMonth, annualReviewDay)
-
--- Get the last review date for each scenario
-set lastWeeklyReview to lastWeekDay(nextWeeklyReview)
-set lastMonthlyReview to lastMonthDay(nextMonthlyReview)
-set lastAnnualReview to lastYearDay(nextAnnualReview)
-
 on hazelProcessFile(theFile)
+	-- weeklyReviewDay is the day of the week of your Weekly Review.
+	set weeklyReviewDay to Friday
+	
+	-- monthlyReviewDay is the day of the month of your Monthly Review.
+	set monthlyReviewDay to 1
+	
+	-- annualReviewMonth is the month of your Annual Review.
+	set annualReviewMonth to January
+	
+	-- annualReviewDay is the day of the month for your Annual Review.
+	set annualReviewDay to 1
+	
+	-- Get the current date as a base for new review dates
+	set nextWeeklyReview to current date
+	set nextMonthlyReview to current date
+	set nextAnnualReview to current date
+	
+	-- Get the next available review date for each scenario
+	set nextWeeklyReview to nextWeekDay(nextWeeklyReview, weeklyReviewDay)
+	set nextMonthlyReview to nextMonthDay(nextMonthlyReview, monthlyReviewDay)
+	set nextAnnualReview to nextYearDay(nextAnnualReview, annualReviewMonth, annualReviewDay)
+	
+	-- Get the last review date for each scenario
+	set lastWeeklyReview to lastWeekDay(nextWeeklyReview)
+	set lastMonthlyReview to lastMonthDay(nextMonthlyReview)
+	set lastAnnualReview to lastYearDay(nextAnnualReview)
+	
 	set projectCNT to 0
 	
 	tell application "OmniFocus"
