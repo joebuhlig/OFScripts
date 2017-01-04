@@ -30,6 +30,14 @@ You could manually run this every day, but I've found Hazel to be much more reli
 
 ![Hazel Rule](https://github.com/joebuhlig/OFScripts/blob/master/Daily%20Task%20Report/HazelRule.jpg)
 
+Note: If you're using Hazel for this you can run it one of two ways - embedded or external. You can embed the code in a Hazel action or link Hazel to an external script. If you're using the former, you'll need to pull the `hazelProcessFile` handler at the beginning and end of the script. So delete these two lines:
+
+`on hazelProcessFile(theFile)`
+
+`end hazelProcessFile`
+
+This handler is only used when the script is run as an external script in Hazel.
+
 # Setup
 
 All you need to do is tell it where you want to save the files. Change this line:
