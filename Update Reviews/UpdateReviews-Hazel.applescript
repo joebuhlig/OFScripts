@@ -91,7 +91,12 @@ on nextYearDay(reviewDate, annualMonth, annualDay)
 		set reviewDate's month to annualMonth
 		set reviewDate's day to annualDay
 	else if reviewMonthNum = annualMonthNum then
-		set reviewDate to nextMonthDay(reviewDate, annualDay)
+		if reviewDate's day > annualDay then
+			set reviewDate's year to (reviewDate's year) + 1
+			set reviewDate's day to annualDay
+		else
+			set reviewDate's day to annualDay
+		end if
 	else if reviewMonthNum < annualMonthNum then
 		set reviewDate's month to annualMonth
 		set reviewDate to nextMonthDay(reviewDate, annualDay)
@@ -99,6 +104,7 @@ on nextYearDay(reviewDate, annualMonth, annualDay)
 	
 	return reviewDate
 end nextYearDay
+
 
 on lastWeekDay(curDate)
 	set curDate to curDate - (1 * weeks)

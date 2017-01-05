@@ -20,12 +20,6 @@ set nextWeeklyReview to nextWeekDay(nextWeeklyReview, weeklyReviewDay)
 set nextMonthlyReview to nextMonthDay(nextMonthlyReview, monthlyReviewDay)
 set nextAnnualReview to nextYearDay(nextAnnualReview, annualReviewMonth, annualReviewDay)
 
--- Get the last review date for each scenario
-set lastWeeklyReview to lastWeekDay(nextWeeklyReview)
-set lastMonthlyReview to lastMonthDay(nextMonthlyReview)
-set lastAnnualReview to lastYearDay(nextAnnualReview)
-
-
 -- Confirm that the user wants to move forward with this
 set question to display dialog "The Next Review date of your projects will be adjusted based on each project's Next Review setting.
 
@@ -42,6 +36,10 @@ if answer is equal to "No" then
 	return
 end if
 
+-- Get the last review date for each scenario
+set lastWeeklyReview to lastWeekDay(nextWeeklyReview)
+set lastMonthlyReview to lastMonthDay(nextMonthlyReview)
+set lastAnnualReview to lastYearDay(nextAnnualReview)
 set projectCNT to 0
 
 tell application "OmniFocus"
@@ -108,7 +106,12 @@ on nextYearDay(reviewDate, annualMonth, annualDay)
 		set reviewDate's month to annualMonth
 		set reviewDate's day to annualDay
 	else if reviewMonthNum = annualMonthNum then
-		set reviewDate to nextMonthDay(reviewDate, annualDay)
+		if reviewDate's day > annualDay then
+			set reviewDate's year to (reviewDate's year) + 1
+			set reviewDate's day to annualDay
+		else
+			set reviewDate's day to annualDay
+		end if
 	else if reviewMonthNum < annualMonthNum then
 		set reviewDate's month to annualMonth
 		set reviewDate to nextMonthDay(reviewDate, annualDay)
