@@ -53,7 +53,7 @@ on hazelProcessFile(theFile)
 			end repeat
 			-- If there were no tasks to write to the report
 			if reportText is equal to "" then
-				reportText = "Nothing completed for this day."
+				set reportText to "Nothing completed for this day."
 			end if
 			
 			-- Get the yesterday's date for the top of the report
