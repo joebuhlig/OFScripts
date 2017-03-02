@@ -44,7 +44,7 @@ set projectCNT to 0
 
 tell application "OmniFocus"
 	tell front document
-		set theProjects to every flattened project
+		set theProjects to every flattened project where its status is active or its status is on hold
 		repeat with projNum from 1 to length of theProjects
 			
 			set curProject to item projNum of theProjects
