@@ -1,4 +1,5 @@
 set myContext to "Read"
+set dateFormat to "mmddyyyy" -- choose "mmddyyyy" or "ddmmyyyy" based on your region
 
 set bookTitle to text returned of (display dialog "What's the title of the book?" default answer "")
 set numPages to text returned of (display dialog "How many pages are in the book?" default answer 0) as integer
@@ -7,14 +8,23 @@ set endDate to text returned of (display dialog "When should this end?" default 
 set deferYear to text 1 thru 4 of startDate
 set deferMonth to text 5 thru 6 of startDate
 set deferDay to text 7 thru 8 of startDate
-set dateString to deferMonth & "/" & deferDay & "/" & deferYear
-set deferDate to date dateString
 
 set endYear to text 1 thru 4 of endDate
 set endMonth to text 5 thru 6 of endDate
 set endDay to text 7 thru 8 of endDate
-set endDateString to endMonth & "/" & endDay & "/" & endYear
-set endDate to date endDateString
+
+if (dateFormat = "mmddyyyy") then
+	set endDateString to endMonth & "/" & endDay & "/" & endYear
+	set endDate to date endDateString
+	set dateString to deferMonth & "/" & deferDay & "/" & deferYear
+	set deferDate to date dateString
+else if (dateFormat = "ddmmyyyy") then
+	set endDateString to endDay & "/" & endMonth & "/" & endYear
+	set endDate to date endDateString
+	set dateString to deferDay & "/" & deferMonth & "/" & deferYear
+	set deferDate to date dateString
+end if
+
 set numDays to ((endDate - deferDate) div days) + 1
 
 tell application "OmniFocus"
