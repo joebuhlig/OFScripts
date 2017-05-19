@@ -1,5 +1,11 @@
 on hazelProcessFile(theFile)
+	-- File output options
+	set outputToFile to true -- Do you want to output to a text file?
 	set filePath to "/Users/USERNAME/TaskReports/" -- Where to save the resulting text file (Be sure to add the trailing "/")
+	
+	-- Evernote ouput options
+	set outputToEvernote to false -- Do you want to output to Evernote?
+	set evernoteNotebook to "Stream of consciousness" -- Where to file the resulting Evernote note (Be sure the Notebook already exists)
 	
 	-- Create the new filename as YYYYMMDD.txt
 	set todayDate to current date
@@ -60,12 +66,23 @@ on hazelProcessFile(theFile)
 			set runTime to date string of (todayDate - 1 * days)
 			-- Add the date to the top of the report, enter down a couple lines, and add the report text
 			set reportText to runTime & return & return & reportText
-			-- Create the new report file
-			set newFile to open for access filePath & fileName & ".txt" with write permission
-			-- Add the report text to the new file
-			write reportText to newFile
-			-- Close the report file
-			close access newFile
+			
+			if outputToFile then
+				-- Create the new report file
+				set newFile to open for access filePath & fileName & ".txt" with write permission
+				-- Add the report text to the new file
+				write reportText to newFile
+				-- Close the report file
+				close access newFile
+			end if
+			
+			if outputToEvernote then
+				set noteTitle to fileName as string
+				tell application "Evernote"
+					create note title noteTitle with text reportText notebook evernoteNotebook
+				end tell
+			end if
+			
 		end tell -- end tell front document
 	end tell -- end tell application "OmniFocus"
 end hazelProcessFile
