@@ -9,7 +9,10 @@ on hazelProcessFile(theFile)
 					set taskName to name of currentTask
 					if taskName starts with "--" then
 						set taskName to ((characters 3 thru -1 of taskName) as string)
-						set newTask to parse tasks into with transport text taskName with as single task
+						set taskNote to note of currentTask
+						set taskText to taskName & "
+	" & taskNote
+						set newTask to parse tasks into with transport text taskText with as single task
 						delete currentTask
 					end if
 				end repeat
