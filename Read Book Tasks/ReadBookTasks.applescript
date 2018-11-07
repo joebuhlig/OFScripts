@@ -1,4 +1,4 @@
-set myContext to "Read"
+set myTag to "Read"
 set dateFormat to "mmddyyyy" -- choose "mmddyyyy" or "ddmmyyyy" based on your region
 
 set bookTitle to text returned of (display dialog "What's the title of the book?" default answer "")
@@ -34,14 +34,14 @@ tell application "OmniFocus"
 		set endPage to pagesPer as integer
 		set i to 2
 		set taskTitle to "Read pages " & startPage & " - " & endPage & " of " & bookTitle
-		set theContext to first flattened tag where its name is myContext
-		set newTask to make new inbox task with properties {name:taskTitle, defer date:deferDate, primary tag:theContext}
+		set theTag to first flattened tag where its name is myTag
+		set newTask to make new inbox task with properties {name:taskTitle, defer date:deferDate, primary tag:theTag}
 		repeat (numDays - 1) times
 			set startPage to endPage + 1
 			set endPage to round (pagesPer * i) rounding up
 			set taskTitle to "Read pages " & startPage & " - " & endPage & " of " & bookTitle
 			set deferDate to deferDate + (60 * 60 * 24)
-			set newTask to make new inbox task with properties {name:taskTitle, defer date:deferDate, primary tag:theContext}
+			set newTask to make new inbox task with properties {name:taskTitle, defer date:deferDate, primary tag:theTag}
 			set i to i + 1
 		end repeat
 		return bookTitle & ": " & numPages
