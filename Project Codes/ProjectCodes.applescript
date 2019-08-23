@@ -1,4 +1,4 @@
-set notesDirectory to "/Users/USERNAME/notes/"
+set notesDirectory to "/Users/joebuhlig/notes.joebuhlig/notes/"
 set projectsFileName to "project-codes.md"
 tell application "Finder"
 	if exists (notesDirectory & projectsFileName) as POSIX file then
@@ -16,14 +16,13 @@ if projectsList is not equal to "" then
 	set dateCode to first text item of projectsList
 	set AppleScript's text item delimiters to "-"
 	set existingYear to text 3 thru 6 of (first text item of dateCode)
+	set existingCode to last text item of dateCode
 	set AppleScript's text item delimiters to oldDelimiters
-	log existingYear
 else
 	set existingYear to "1900"
 end if
 set currentYear to year of (current date) as string
 if existingYear = currentYear then
-	set existingCode to last text item of dateCode
 	set newNumber to "0000" & ((existingCode as number) + 1) as string
 	set numberString to text ((length of newNumber) - 3) thru (length of newNumber) of newNumber
 else
