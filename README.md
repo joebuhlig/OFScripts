@@ -16,6 +16,10 @@ To use it, you simply need to create a string that is to be parsed and pass it t
 
 I like keeping a log of the work I've done every day. And since I keep all of my work in OmniFocus, it only makes sense to automatically create a report off of yesterdays completed tasks. That's exactly what this script does.
 
+# Project Codes
+
+A [TextExpander](https://joebuhlig.com/go/textexpander) snippet for creating and managing project codes.
+
 # Read Book Tasks
 
 I read books on a schedule so I needed a quick way to create tasks for how much to read in a day. This script adds these tasks automatically after asking a handful of questions about the book and your timeframe. You can learn more about it [here](http://joebuhlig.com/reading-books-on-a-schedule/).
