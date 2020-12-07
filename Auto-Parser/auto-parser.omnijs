@@ -1,0 +1,24 @@
+/*{
+"author": "Joe Buhlig",
+"targets": ["omnifocus"],
+"type": "action",
+"identifier": "com.joebuhlig.omnifocus.com.auto-parser",
+"version": "0.1",
+"description": "Parse tasks in the OmniFocus inbox",
+"label": "Parse Inbox",
+"mediumLabel": "Parse tasks in the OmniFocus inbox",
+"paletteLabel": "Parse Inbox",
+}*/
+(() => {
+var action = new PlugIn.Action(function(selection, sender) {
+  inbox.apply((task) => {
+    if (task.name.substr(0, 2) == "--"){
+      var taskName = task.name.substr(2);
+      Task.byParsingTransportText(taskName, true);
+      deleteObject(task);
+    }
+  });
+});
+
+return action;
+})();
