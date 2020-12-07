@@ -1,0 +1,83 @@
+/*{
+"author": "Joe Buhlig",
+"targets": ["omnifocus"],
+"type": "action",
+"identifier": "com.joebuhlig.omnifocus.com.update-reviews",
+"version": "0.1",
+"description": "Update next review dates based on scheduled review date",
+"label": "Update Reviews",
+"mediumLabel": "Update next review dates",
+"paletteLabel": "Update Reviews",
+}*/
+(() => {
+var action = new PlugIn.Action(function(selection, sender) {
+  var weeklyReviewDay = 5; /* 0 = Sunday, 6 = Saturday */
+  var monthlyReviewDay = 1;
+  var annualReviewDay = 1;
+  var annualReviewMonth = 1; /* 1 = January, 12 = December */
+
+  nextWeekDay = nextWeekDay(weeklyReviewDay)
+  nextMonthDay = nextMonthDay(monthlyReviewDay)
+  nextAnnualDay = nextAnnualDay(annualReviewDay, annualReviewMonth)
+
+  const form = new Form();
+
+  var weeklyReviewDate = new Form.Field.Date("weeklyReviewDate", "Next Weekly", nextWeekDay);
+  var monthlyReviewDate = new Form.Field.Date("monthlyReviewDate", "Next Monthly", nextMonthDay);
+  var annualReviewDate = new Form.Field.Date("annualReviewDate", "Next Annual", nextAnnualDay);
+
+  form.addField(weeklyReviewDate, 0);
+  form.addField(monthlyReviewDate, 1);
+  form.addField(annualReviewDate, 2);
+
+  const formPromise = form.show("Select your next review dates", "Update Reviews");
+  formPromise.then(function(formObject){
+    weeklyReviewDate = formObject.values["weeklyReviewDate"];
+    monthlyReviewDate = formObject.values["monthlyReviewDate"];
+    annualReviewDate = formObject.values["annualReviewDate"];
+
+    const projects = flattenedProjects;
+    projects.forEach((project) => {
+      project.nextReviewDate = weeklyReviewDate;
+    })
+  });
+});
+
+return action;
+})();
+
+function nextWeekDay(dayIndex) {
+  var today = new Date();
+  today.setHours(0,0,0,0);
+  today.setDate(today.getDate() + (dayIndex - 1 - today.getDay() + 7) % 7 + 1);
+  return today;
+}
+
+function nextMonthDay(dayIndex) {
+  var today = new Date();
+  today.setHours(0,0,0,0);
+  if (dayIndex < today.getDate()) {
+    if (today.getMonth() == 11) {
+      today.setMonth(0);
+    }
+    else {
+      today.setMonth(today.getMonth() + 1)
+    }
+  }
+  today.setDate(dayIndex);
+  return today;
+}
+
+function nextAnnualDay(dayIndex, monthIndex) {
+  var today = new Date();
+  today.setHours(0,0,0,0);
+  monthIndex -= 1;
+
+  var nextAnnualDate = new Date(today.getFullYear(), monthIndex, dayIndex, 0,0,0,0);
+
+  if (today > nextAnnualDate) {
+    nextAnnualDate.setFullYear(today.getFullYear() + 1);
+  }
+
+  return nextAnnualDate;
+}
