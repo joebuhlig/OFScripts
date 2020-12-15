@@ -16,15 +16,15 @@ var action = new PlugIn.Action(function(selection, sender) {
   var annualReviewDay = 1;
   var annualReviewMonth = 1; /* 1 = January, 12 = December */
 
-  nextWeekDay = nextWeekDay(weeklyReviewDay)
-  nextMonthDay = nextMonthDay(monthlyReviewDay)
-  nextAnnualDay = nextAnnualDay(annualReviewDay, annualReviewMonth)
+  weeklyDay = nextWeekDay(weeklyReviewDay);
+  monthlyDay = nextMonthDay(monthlyReviewDay);
+  annualDay = nextAnnualDay(annualReviewDay, annualReviewMonth);
 
   const form = new Form();
 
-  var weeklyReviewDate = new Form.Field.Date("weeklyReviewDate", "Next Weekly", nextWeekDay);
-  var monthlyReviewDate = new Form.Field.Date("monthlyReviewDate", "Next Monthly", nextMonthDay);
-  var annualReviewDate = new Form.Field.Date("annualReviewDate", "Next Annual", nextAnnualDay);
+  var weeklyReviewDate = new Form.Field.Date("weeklyReviewDate", "Next Weekly", weeklyDay);
+  var monthlyReviewDate = new Form.Field.Date("monthlyReviewDate", "Next Monthly", monthlyDay);
+  var annualReviewDate = new Form.Field.Date("annualReviewDate", "Next Annual", annualDay);
 
   form.addField(weeklyReviewDate, 0);
   form.addField(monthlyReviewDate, 1);
@@ -37,9 +37,23 @@ var action = new PlugIn.Action(function(selection, sender) {
     annualReviewDate = formObject.values["annualReviewDate"];
 
     const projects = flattenedProjects;
-    projects.forEach((project) => {
-      project.nextReviewDate = weeklyReviewDate;
-    })
+    for (index in projects){
+      var project = projects[index];
+      var reviewInterval = project.reviewInterval;
+      if (reviewInterval.steps == 1) {
+        switch (reviewInterval.unit) {
+          case "weeks":
+            project.nextReviewDate = weeklyReviewDate;
+            break;
+          case "months":
+            project.nextReviewDate = monthlyReviewDate;
+            break;
+          case "years":
+            project.nextReviewDate = annualReviewDate;
+            break;
+        }
+      }
+    }
   });
 });
 
@@ -59,6 +73,7 @@ function nextMonthDay(dayIndex) {
   if (dayIndex < today.getDate()) {
     if (today.getMonth() == 11) {
       today.setMonth(0);
+      today.setFullYear(today.getFullYear() + 1);
     }
     else {
       today.setMonth(today.getMonth() + 1)
