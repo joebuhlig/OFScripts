@@ -1,0 +1,38 @@
+{
+  "author": "Otto Automator",
+  "libraries": [],
+  "identifier": "com.omni-automation.of.kanban-board",
+  "version": "1.0",
+  "description": "Create and maintain a tag-based Kanban Board in OmniFocus.",
+  "actions": [
+    {
+      "image": "icon.png",
+      "identifier": "aboutThisPlugin"
+    },
+    {
+      "image": "kanban-setup.png",
+      "identifier": "Setup"
+    },
+    {
+      "image": "kanban-to-do.png",
+      "identifier": "ToDo"
+    },
+    {
+      "image": "kanban-in-progress.png",
+      "identifier": "InProgress"
+    },
+    {
+      "image": "kanban-waiting.png",
+      "identifier": "Waiting"
+    },
+    {
+      "image": "kanban-done.png",
+      "identifier": "Done"
+    },
+    {
+      "image": "kanban-clear.png",
+      "identifier": "Clear"
+    }
+  ],
+  "defaultLocale": "en"
+}
