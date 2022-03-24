@@ -1,8 +1,10 @@
+set apiKey to "XXXXXXXXXXXXXXXXXXXXXXXXX"
+set location to "55555"
 tell application "JSON Helper"
-	set theURL to "http://api.wunderground.com/api/XXXXX_APIKEY_XXXXX/forecast/q/IL/Chicago.json"
+	set theURL to "https://api.weatherapi.com/v1/forecast.json?key=" & apiKey & "&q=" & location & "&days=1&aqi=no&alerts=no"
 	set weather to fetch JSON from (theURL)
-	set highTemp to (fahrenheit of high of item 1 of forecastday of simpleforecast of forecast of weather) as integer
-	set lowTemp to (fahrenheit of low of item 1 of forecastday of simpleforecast of forecast of weather) as integer
+	set highTemp to (maxtemp_f of |day| of item 1 of forecastday of forecast of weather) as integer
+	set lowTemp to (mintemp_f of |day| of item 1 of forecastday of forecast of weather) as integer
 end tell
 
 tell application "OmniFocus"
@@ -18,14 +20,14 @@ tell application "OmniFocus"
 				set projectTriggers to text ((offset of "<Activate>" in projNote) + 10) thru ((offset of "</Activate>" in projNote) - 1) of projNote
 				set triggerFlag to my getTriggerFlag(projectTriggers, highTemp, lowTemp)
 				if triggerFlag is true then
-					set status of curProject to active
+					set status of curProject to active status
 				end if
 			end if -- if note contains <Activate>
 			if projNote contains "<Deactivate>" then
 				set projectTriggers to text ((offset of "<Deactivate>" in projNote) + 12) thru ((offset of "</Deactivate>" in projNote) - 1) of projNote
 				set triggerFlag to my getTriggerFlag(projectTriggers, highTemp, lowTemp)
 				if triggerFlag is true then
-					set status of curProject to on hold
+					set status of curProject to on hold status
 				end if
 			end if -- if note contains <Deactivate>
 		end repeat -- Project loop
