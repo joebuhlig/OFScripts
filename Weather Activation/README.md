@@ -12,13 +12,14 @@ In order for this to work correctly, you'll need [JSON Helper from the Mac App S
 
 # Weather Underground API
 
-You'll also need a developers API key from Weather Underground. You can [sign up for one here](http://www.wunderground.com/weather/api).
+You'll also need a developers API key from Weather Underground. You can [sign up for one here](https://www.weatherapi.com/).
 
-Once you sign up you'll need to change this line in the script:
+Once you sign up you'll need to change these two lines in the script:
 
-`set theURL to "http://api.wunderground.com/api/XXXXX_APIKEY_XXXXX/forecast/q/IL/Chicago.json"`
-
-Change the API key, the city, and the state in the url. You can always enter this url into your web browser to make sure it's working correctly.
+```
+set apiKey to "XXXXXXXXXXXXXXXXXXXXXXXXX"
+set location to "55555"
+```
 
 # Syntax
 
